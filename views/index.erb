@@ -1,3 +1,18 @@
 <h1>Welcome to Chitter!</h1>
-<br/>
-<a href="/peeps">View peeps</a>
+<a href="/account/new">Sign up</a><br/>
+
+<h1>Peep feed</h1>
+
+<ul>
+  <% @peeps.each do | peep | %>
+    <li><%= peep.text %></li>
+  <% end %>
+</ul>
+
+<h1>Post a peep!</h1>
+<form action="/post_peep" method="post">
+    <label for="text">Message:</label>
+    <input type="text" name="text" required><br>
+    <button type="submit" value="Post peep">Post peep</button>
+</form>
+
