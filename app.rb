@@ -1,7 +1,7 @@
-require 'sinatra/base'
-require 'sinatra/reloader'
-require './lib/peep'
-require './lib/account'
+require "sinatra/base"
+require "sinatra/reloader"
+require "./lib/peep"
+require "./lib/account"
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -10,27 +10,39 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  get '/' do
+  get "/" do
     @peeps = Peep.all
     @name = session[:name]
     erb :index
   end
 
-  post '/post_peep' do
+  post "/post_peep" do
     Peep.create(text: params[:text])
-    redirect '/'
+    redirect "/"
   end
 
-  get '/account/new' do
+  get "/signup" do
     erb :"account/new"
   end
 
-  post '/account/new' do
+  post "/signup" do
     @user = Account.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     session[:name] = @user.name
     session[:username] = @user.username
     session[:email] = @user.email
-    redirect '/'
+    redirect "/"
+  end
+
+  get "/login" do
+    erb :"account/login"
+  end
+
+  post "/login" do
+    @user = Account.login(email: params[:email], password: params[:password])
+    session[:name] = @user.name
+    session[:username] = @user.username
+    session[:email] = @user.email
+    redirect "/"
   end
 
   run! if app_file == $0

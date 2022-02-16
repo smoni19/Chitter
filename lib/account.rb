@@ -6,6 +6,7 @@ class Account
   @live_db = PG.connect(dbname: 'chitter')
   @test_db = PG.connect(dbname: 'chitter_test')
   @sign_up = "INSERT INTO users (name, username, email, password) VALUES($1, $2, $3, $4) RETURNING id, name, username, email;"
+  @login = "SELECT name, username FROM users WHERE email = $1 AND password = $2;"
 
   def initialize(name:, username:, email:)
     @name = name
@@ -16,6 +17,13 @@ class Account
   def self.create(name:, username:, email:, password:)
     ENV['ENVIRONMENT'] == 'test' ? connection = @test_db : connection = @live_db
     result = connection.exec_params(@sign_up, [name, username, email, password])
+    Account.new(name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
+  end
+
+  def self.login(email:, password:)
+    ENV['ENVIRONMENT'] == 'test' ? connection = @test_db : connection = @live_db
+    result = connection.exec_params(@login, [email, password])
+    return unless result.any?
     Account.new(name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
   end
 

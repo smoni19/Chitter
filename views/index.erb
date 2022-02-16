@@ -1,5 +1,6 @@
-<h1>Welcome to Chitter!</h1>
-<a href="/account/new">Sign up</a><br/>
+<h1><%= @name ? "Hi #{@name}, " : "" %> Welcome to Chitter!</h1>
+<a href="/signup">Sign up</a><br/>
+<a href="/login">Login</a><br/>
 
 <h1>Peep feed</h1>
 
@@ -11,8 +12,8 @@
 
 <h1>Post a peep!</h1>
 <form action="/post_peep" method="post">
-    <label for="text">Message:</label>
-    <input type="text" name="text" required><br>
-    <button type="submit" value="Post peep">Post peep</button>
+  <label for="text">Message:</label>
+  <input type="text" name="text" required><br>
+  <button type="submit" value="Post peep">Post peep</button>
 </form>
 
