@@ -1,14 +1,18 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peep'
+require './lib/account'
 
 class Chitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/' do
     @peeps = Peep.all
+    @name = session[:name]
     erb :index
   end
 
@@ -22,6 +26,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/account/new' do
+    @user = Account.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session[:name] = @user.name
+    session[:username] = @user.username
+    session[:email] = @user.email
     redirect '/'
   end
 
