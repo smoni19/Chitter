@@ -8,7 +8,7 @@ feature "user can post Peep" do
     fill_in("password", with: "1234")
     click_button("Login")
     fill_in("text", with: "This is a test peep")
-    click_button("Post peep")
-    expect(page).to have_content("js2000 peeped: This is a test peep")
+    click_button("Peep!")
+    expect(page).to have_content("js2000 peeped This is a test peep")
   end
 end
