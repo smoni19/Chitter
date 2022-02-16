@@ -1,19 +1,22 @@
 <h1><%= @name ? "Hi #{@name}, " : "" %> Welcome to Chitter!</h1>
-<a href="/signup">Sign up</a><br/>
-<a href="/login">Login</a><br/>
+
+<% if !@name %>
+  <a href="/signup">Sign up</a><br/>
+  <a href="/login">Login</a><br/>
+<% end %>
 
 <h1>Peep feed</h1>
-
 <ul>
-  <% @peeps.each do | peep | %>
-    <li><%= peep.text %></li>
+  <% @peeps.each do |peep| %>
+    <li><%= "#{peep.account_id} peeped: #{peep.text}"%></li>
   <% end %>
 </ul>
 
-<h1>Post a peep!</h1>
-<form action="/post_peep" method="post">
-  <label for="text">Message:</label>
-  <input type="text" name="text" required><br>
-  <button type="submit" value="Post peep">Post peep</button>
-</form>
-
+<% if @name %>
+  <h1>Post a peep!</h1>
+  <form action="/post_peep" method="post">
+    <label for="text">Message:</label>
+    <input type="text" name="text" required><br>
+    <button type="submit" value="Post peep">Post peep</button>
+  </form>
+<% end %>
