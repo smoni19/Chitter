@@ -3,9 +3,11 @@
 <% if !@name %>
   <a href="/signup">Sign up</a><br/>
   <a href="/login">Login</a><br/>
+<% else %>
+  <a href="/logout">Logout</a><br/>
 <% end %>
 
-<h1>Peep feed</h1>
+<h1>Peeps</h1>
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= "#{peep.get_user_info.username} peeped: #{peep.text}"%></li>
@@ -13,7 +15,7 @@
 </ul>
 
 <% if @name %>
-  <h1>Post a peep!</h1>
+  <h1>Peep!</h1>
   <form action="/post_peep" method="post">
     <label for="text">Message:</label>
     <input type="text" name="text" required><br>

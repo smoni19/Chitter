@@ -48,5 +48,10 @@ class Chitter < Sinatra::Base
     redirect "/"
   end
 
+  get "/logout" do
+    session.clear
+    redirect "/"
+  end
+
   run! if app_file == $0
 end

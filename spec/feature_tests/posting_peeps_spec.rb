@@ -3,6 +3,7 @@ feature "user can post Peep" do
     Account.create(name: "Tony Wood", username: "t_w_40", email: "t_w_40@test.com", password: "1234")
     Account.create(name: "John Smith", username: "js2000", email: "js2000@test.com", password: "1234")
     visit("/login")
+    expect(page.status_code).to eq 200
     fill_in("email", with: "js2000@test.com")
     fill_in("password", with: "1234")
     click_button("Login")
