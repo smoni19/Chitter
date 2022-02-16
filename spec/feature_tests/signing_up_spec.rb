@@ -1,5 +1,5 @@
 feature "user can sign up" do
-  scenario "users fill out sign up form, click Sign Up! button and their account is created" do
+  scenario "users fill out sign up form, click Sign Up! button and theiår account is created" do
     visit("/signup")
     fill_in("name", with: "John Smith")
     fill_in("username", with: "js2000")

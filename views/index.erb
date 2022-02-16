@@ -8,7 +8,7 @@
 <h1>Peep feed</h1>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= "#{peep.account_id} peeped: #{peep.text}"%></li>
+    <li><%= "#{peep.get_user_info.username} peeped: #{peep.text}"%></li>
   <% end %>
 </ul>
 

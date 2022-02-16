@@ -27,4 +27,7 @@ class Peep
     end
   end
 
+  def get_user_info
+    Account.find(id: account_id)
+  end
 end

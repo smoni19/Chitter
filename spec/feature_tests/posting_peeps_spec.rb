@@ -1,5 +1,6 @@
 feature "user can post Peep" do
   scenario "users fill out peep form and click Post peep and have peep appear on page" do
+    Account.create(name: "Tony Wood", username: "t_w_40", email: "t_w_40@test.com", password: "1234")
     Account.create(name: "John Smith", username: "js2000", email: "js2000@test.com", password: "1234")
     visit("/login")
     fill_in("email", with: "js2000@test.com")
@@ -7,6 +8,6 @@ feature "user can post Peep" do
     click_button("Login")
     fill_in("text", with: "This is a test peep")
     click_button("Post peep")
-    expect(page).to have_content("This is a test peep")
+    expect(page).to have_content("js2000 peeped: This is a test peep")
   end
 end
