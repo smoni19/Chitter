@@ -1,10 +1,10 @@
-<h1><%= @name ? "Hi #{@name}, " : "" %> Welcome to Chitter!</h1>
+<h1><%= @name ? "Hi #{@name} - #{@username}" : "Welcome to Chitter!" %></h1>
 
 <% if !@name %>
-  <a href="/signup">Sign up</a><br/>
-  <a href="/login">Login</a><br/>
+  <a href="/signup">Sign up</a>
+  <a href="/login">Login</a>
 <% else %>
-  <a href="/logout">Logout</a><br/>
+  <a href="/logout">Logout</a>
 <% end %>
 
 <h1>Peeps</h1>
@@ -15,10 +15,9 @@
 </ul>
 
 <% if @name %>
-  <h1>Peep!</h1>
   <form action="/post_peep" method="post">
-    <label for="text">Message:</label>
-    <input type="text" name="text" required><br>
-    <button type="submit" value="Post peep">Post peep</button>
+    <input type="text" name="text" placeholder="message" required>
+    <button type="submit" value="Post peep">Peep!</button>
   </form>
 <% end %>
+

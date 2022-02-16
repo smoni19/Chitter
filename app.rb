@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   get "/" do
     @peeps = Peep.all
     @name = session[:name]
+    @username = session[:username]
     @user = Account.find(id: session[:user_id])
     erb :index
   end
