@@ -7,6 +7,6 @@ feature "user can log in" do
     fill_in("email", with: "js2000@test.com")
     fill_in("password", with: "1234")
     click_button("Login")
-    expect(page).to have_content("Hi John Smith, Welcome to Chitter!")
+    expect(page).to have_content("John Smith @js2000")
   end
 end

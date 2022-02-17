@@ -1,23 +1,50 @@
-<h1><%= @name ? "Hi #{@name} - #{@username}" : "Welcome to Chitter!" %></h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
 
-<% if !@name %>
-  <a href="/signup">Sign up</a>
-  <a href="/login">Login</a>
-<% else %>
-  <a href="/logout">Logout</a>
-<% end %>
+    <div id="content">
+      <div id="navbar">
+        <div id="welcome">
+          <%= @name ? "#{@name} @#{@username}" : "Welcome to Chitter!" %>
+        </div>
+        <div id="links">
+          <% if !@name %>
+            <a href="/signup">Sign up</a>
+            <a href="/login">Login</a>
+          <% else %>
+            <a href="/logout">Logout</a>
+          <% end %>
+        </div>
+      </div>
 
-<h1>Peeps</h1>
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= "#{peep.get_user_info.username} peeped: #{peep.text}"%></li>
-  <% end %>
-</ul>
+      <div id="post_peep">
+        <% if @name %>
+          <form action="/post_peep" method="post">
+            <input type="text" name="text" placeholder="Message" id="text" required>
+            <input type="submit" value="Peep!"></button>
+          </form>
+        <% end %>
+      </div>
 
-<% if @name %>
-  <form action="/post_peep" method="post">
-    <input type="text" name="text" placeholder="message" required>
-    <button type="submit" value="Post peep">Peep!</button>
-  </form>
-<% end %>
+      <div id="peeps">
+        <ul>
+          <% @peeps.each do |peep| %>
+            <li class="peep" id="<%= peep.id %>">
+              <span id="poster_name"><%= "#{peep.get_user_info.name}" %></span>
+              <span id="poster_username"><%= "@#{peep.get_user_info.username}" %></span>
+              <p id="peep_text"><%= peep.text %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 
+  </body>
+</html>

@@ -9,7 +9,7 @@ feature "user can log out" do
     click_button("Login")
     expect(page).to_not have_content("Signup")
     expect(page).to_not have_content("Login")
-    expect(page).to have_content("Hi John Smith, Welcome to Chitter!")
+    expect(page).to have_content("John Smith @js2000")
     click_link("Logout")
     expect(page).to have_content("Welcome to Chitter!")
   end

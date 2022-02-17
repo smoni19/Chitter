@@ -1,0 +1,168 @@
+body {
+  background: #444;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  color: white;
+  text-align: left;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+}
+
+#navbar {
+  background: #666;
+  width: 50%;
+  border-radius: 5px 5px 0px 0px;
+  font-weight: 500;
+  font-size: 16pt;
+  padding: 5px;
+  border: 2px solid orange;
+}
+
+#welcome {
+  float: left;
+  padding: 5px;
+}
+
+#links {
+  float: right;
+  padding: 5px;
+}
+
+#peeps {
+  width: 50%;
+  position: absolute;
+  top: 107px;
+}
+
+#post_peep {
+  position: absolute;
+  top: 60px;
+  margin-top: 10px;
+  width: 50%;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=submit] {
+  background-color: #666;
+  font-family: 'Rubik', sans-serif;
+  border: none;
+  color: white;
+  font-size: 16pt;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 2px solid orange;
+}
+
+#login_button, #signup_button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  margin-bottom: 5px;
+}
+
+#text {
+  width: 80%;
+  font-size: 12pt;
+  padding: 8px 10px;
+}
+
+::placeholder {
+  color: white;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+input[type=submit]:focus, input[type=submit]:hover {
+  color: orange;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  float: right;
+  margin-left: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: none;
+  margin-left: -40px;
+  line-height: 1.4;
+}
+
+li {
+  background: #555;
+  margin-bottom: 7px;
+  padding: 5px 10px;
+}
+
+li:hover {
+  background: #666;
+  cursor: pointer;
+}
+
+ul li:nth-child(even) {
+  color: rgb(252, 85, 182);
+  border: 2px solid rgb(255, 85, 182);
+}
+
+ul li:nth-child(odd) {
+  color: rgb(0, 225, 255);
+  border: 2px solid rgb(0, 225, 255);
+}
+
+#poster_name, #poster_username {
+  text-align: left;
+  font-weight: 500;
+}
+
+#poster_username {
+  text-align: left;
+  font-weight: 300;
+  color: #aaa;
+}
+
+#peep_text {
+  color: white;
+  padding: 5px 10px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-align: left;
+  margin: 0px;
+  padding: 0 20px 0;
+  text-align: justify;
+}
+
+h1 {
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+  margin-left: 10px;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  margin-left: 10px;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  margin-left: 10px;
+  color: orange;
+}
+
+a:active {
+  text-decoration: none;
+  margin-left: 10px;
+  color: orange;
+}
