@@ -44,7 +44,7 @@ body {
   width: 50%;
 }
 
-input[type=text], input[type=submit] {
+input[type=text], input[type=password], input[type=email], input[type=submit] {
   background-color: #666;
   font-family: 'Rubik', sans-serif;
   border: none;
@@ -55,8 +55,17 @@ input[type=text], input[type=submit] {
   border: 2px solid orange;
 }
 
-input[type=text] {
-  width: 82%;
+#login_button, #signup_button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  margin-bottom: 5px;
+}
+
+#text {
+  width: 80%;
   font-size: 12pt;
   padding: 8px 10px;
 }
@@ -84,7 +93,7 @@ ul {
   list-style-type: none;
   padding: none;
   margin-left: -40px;
-  line-height: 1.8;
+  line-height: 1.4;
 }
 
 li {
