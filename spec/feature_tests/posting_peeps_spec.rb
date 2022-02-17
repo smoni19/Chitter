@@ -9,6 +9,7 @@ feature "user can post Peep" do
     click_button("Login")
     fill_in("text", with: "This is a test peep")
     click_button("Peep!")
-    expect(page).to have_content("js2000 peeped This is a test peep")
+    expect(page).to have_content("John Smith @js2000")
+    expect(page).to have_content("This is a test peep")
   end
 end

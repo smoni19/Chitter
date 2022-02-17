@@ -3,6 +3,7 @@ body {
   font-family: 'Rubik', sans-serif;
   font-weight: 300;
   color: white;
+  text-align: left;
 }
 
 #content {
@@ -21,7 +22,6 @@ body {
 }
 
 #welcome {
-  width: 50%;
   float: left;
   padding: 5px;
 }
@@ -34,16 +34,17 @@ body {
 #peeps {
   width: 50%;
   position: absolute;
-  top: 120px;
+  top: 107px;
 }
 
 #post_peep {
   position: absolute;
   top: 60px;
-  display: inline-block;
+  margin-top: 10px;
+  width: 50%;
 }
 
-textarea, input[type=submit] {
+input[type=text], input[type=submit] {
   background-color: #666;
   font-family: 'Rubik', sans-serif;
   border: none;
@@ -54,11 +55,17 @@ textarea, input[type=submit] {
   border: 2px solid orange;
 }
 
-textarea {
-  width: 100%;
+input[type=text] {
+  width: 82%;
+  font-size: 12pt;
+  padding: 8px 10px;
 }
 
-textarea:focus {
+::placeholder {
+  color: white;
+}
+
+input[type=text]:focus {
   outline: none;
 }
 
@@ -68,9 +75,15 @@ input[type=submit]:focus, input[type=submit]:hover {
   cursor: pointer;
 }
 
+input[type=submit] {
+  float: right;
+  margin-left: 10px;
+}
+
 ul {
   list-style-type: none;
   padding: none;
+  margin-left: -40px;
   line-height: 1.8;
 }
 
@@ -95,15 +108,26 @@ ul li:nth-child(odd) {
   border: 2px solid rgb(0, 225, 255);
 }
 
-#peep_poster {
+#poster_name, #poster_username {
   text-align: left;
   font-weight: 500;
 }
 
+#poster_username {
+  text-align: left;
+  font-weight: 300;
+  color: #aaa;
+}
+
 #peep_text {
   color: white;
-  text-align: right;
-  padding: 5px 20px;
+  padding: 5px 10px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-align: left;
+  margin: 0px;
+  padding: 0 20px 0;
+  text-align: justify;
 }
 
 h1 {

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Chitter</title>
-    <link href="<%= url('/style.css')%>" rel="stylesheet" type="text/css" />
+    <link href="/style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
@@ -24,21 +24,25 @@
         </div>
       </div>
 
-      <div id="peeps">
-        <ul>
-          <% @peeps.each do |peep| %>
-            <li class="peep" id="<%= peep.id %>"><span id="peep_poster"><%= "#{peep.get_user_info.username} peeped "%></span><br/><span id="peep_text"><%= peep.text %></span></li>
-          <% end %>
-        </ul>
-      </div>
-
       <div id="post_peep">
         <% if @name %>
           <form action="/post_peep" method="post">
-            <textarea name="text" placeholder="Message" required></textarea>
+            <input type="text" name="text" placeholder="Message" required>
             <input type="submit" value="Peep!"></button>
           </form>
         <% end %>
+      </div>
+
+      <div id="peeps">
+        <ul>
+          <% @peeps.each do |peep| %>
+            <li class="peep" id="<%= peep.id %>">
+              <span id="poster_name"><%= "#{peep.get_user_info.name}" %></span>
+              <span id="poster_username"><%= "@#{peep.get_user_info.username}" %></span>
+              <p id="peep_text"><%= peep.text %></p>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
 
