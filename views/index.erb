@@ -35,7 +35,7 @@
 
       <div id="peeps">
         <ul>
-          <% @peeps.each do |peep| %>
+          <% @peeps.reverse_each do |peep| %>
             <li class="peep" id="<%= peep.id %>">
               <span id="poster_name"><%= "#{peep.get_user_info.name}" %></span>
               <span id="poster_username"><%= "@#{peep.get_user_info.username}" %></span>
