@@ -23,17 +23,12 @@ body {
   font-weight: 500;
   font-size: 16pt;
   padding: 5px;
-  border: 2px solid orange;
+  border: 2px solid rgb(255, 174, 90);
   box-shadow: inset 0px 0px 10px -5px #000000, 0px 0px 10px -5px #000000;
 }
 
-#welcome {
-  float: left;
-  padding: 5px;
-}
-
 #links {
-  float: right;
+  float: left;
   padding: 5px;
 }
 
@@ -43,11 +38,22 @@ body {
   top: 107px;
 }
 
+#peeps li:hover {
+  background: #666;
+  cursor: pointer;
+  border: 2px solid rgb(0, 252, 214);
+}
+
+#peeps li:hover #poster_name {
+  color: rgb(0, 252, 214);
+}
+
 #post_peep {
   position: absolute;
   top: 60px;
   margin-top: 10px;
-  width: 50%;
+  right: 10px;
+  width: 20%;
 }
 
 input[type=text], input[type=password], input[type=email], input[type=submit] {
@@ -58,11 +64,11 @@ input[type=text], input[type=password], input[type=email], input[type=submit] {
   font-size: 14pt;
   padding: 5px 10px;
   text-decoration: none;
-  border: 2px solid orange;
+  border: 2px solid rgb(255, 174, 90);
 }
 
 #login, #signup {
-  border: 1px solid orange;
+  border: 1px solid rgb(255, 174, 90);
   padding: 10px;
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
@@ -88,14 +94,21 @@ input[type=text], input[type=password], input[type=email] {
   color: white;
 }
 
-input[type=text]:focus {
+input[type=text]:hover, input[type=password]:hover, input[type=email]:hover {
   outline: none;
+  border: 2px solid rgb(0, 252, 214);
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  outline: none;
+  border: 2px solid rgb(0, 252, 214);
 }
 
 input[type=submit]:focus, input[type=submit]:hover {
-  color: orange;
+  border: 2px solid rgb(0, 252, 214);
   outline: none;
   cursor: pointer;
+  color: rgb(0, 252, 214);
 }
 
 input[type=submit] {
@@ -104,9 +117,28 @@ input[type=submit] {
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
 
-input[type=submit]:active {
-  float: right;
-  margin-left: 20px;
+a:link {
+  text-decoration: none;
+  margin-left: 10px;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  margin-left: 10px;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  margin-left: 10px;
+  color: rgb(255, 174, 90);
+}
+
+a:active {
+  text-decoration: none;
+  margin-left: 10px;
+  color: rgb(255, 174, 90);
 }
 
 ul {
@@ -123,19 +155,64 @@ li {
   padding: 5px 10px;
 }
 
-li:hover {
-  background: #666;
-  cursor: pointer;
+ul li:nth-child(even) {
+  color: rgb(255, 106, 183);
+  border: 2px solid rgb(255, 106, 183);
 }
 
-ul li:nth-child(even) {
-  color: rgb(252, 85, 182);
-  border: 2px solid rgb(255, 85, 182);
+ul li:nth-child(even) a {
+  color: rgb(255, 106, 183);
+  margin-left: 0;
 }
 
 ul li:nth-child(odd) {
-  color: rgb(0, 225, 255);
-  border: 2px solid rgb(0, 225, 255);
+  color: rgb(77, 195, 255);
+  border: 2px solid rgb(77, 195, 255);
+}
+
+ul li:nth-child(odd) a {
+  color: rgb(77, 195, 255);
+  margin-left: 0;
+}
+
+#navbar_links {
+  width: 50%;
+  list-style-type: none;
+  margin: 10px;
+  padding: 5px;
+  overflow: hidden;
+  border: 2px solid rgb(255, 174, 90);
+  box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
+}
+
+#navbar_links li {
+  float: left;
+  border: 2px solid rgb(255, 174, 90);
+  margin: 5px;
+  padding: 0;
+  width: 70%;
+}
+
+#navbar_links li:nth-child(1), #navbar_links li:nth-child(3) {
+  width: 12%;
+}
+
+#navbar_links li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#navbar_links li:hover {
+  border: 2px solid rgb(0, 252, 214);
+}
+
+#navbar_links li a:hover {
+  color: rgb(0, 252, 214);
 }
 
 #poster_name, #poster_username {
@@ -169,30 +246,6 @@ ul li:nth-child(odd) {
 
 h1 {
   text-align: center;
-}
-
-a:link {
-  text-decoration: none;
-  margin-left: 10px;
-  color: white;
-}
-
-a:visited {
-  text-decoration: none;
-  margin-left: 10px;
-  color: white;
-}
-
-a:hover {
-  text-decoration: none;
-  margin-left: 10px;
-  color: orange;
-}
-
-a:active {
-  text-decoration: none;
-  margin-left: 10px;
-  color: orange;
 }
 
 hr {

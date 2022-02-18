@@ -11,8 +11,10 @@ feature "user can view other user's page" do
     post_peep("Peep 1")
     click_link("js2000", :match => :first)
     expect(page.status_code).to eq 200
-    expect(page.find("li:nth-child(1)")).to have_content "Peep 1"
-    expect(page.find("li:nth-child(1)")).to have_content "15:00 - Fri 18th Feb '22"
+    within "//div[@id='peeps']" do
+      expect(page.find("li:nth-child(1)")).to have_content "Peep 1"
+      expect(page.find("li:nth-child(1)")).to have_content "14:00 - Fri 18th Feb '22"
+    end
   end
 
   scenario "user clicks a peeper's name, is taken to their page and see only their Peeps" do
@@ -23,8 +25,11 @@ feature "user can view other user's page" do
     post_peep("Peep 2")
     click_link("js2000")
     expect(page.status_code).to eq 200
-    expect(page.find("li:nth-child(1)")).to have_content "Peep 1"
-    expect(page.find("li:nth-child(1)")).to have_content "15:00 - Fri 18th Feb '22"
-    expect(page.find("li:nth-child(1)")).not_to have_content "Peep 2"
+    within "//div[@id='peeps']" do
+      expect(page.find("li:nth-child(1)")).to have_content "Peep 1"
+      expect(page.find("li:nth-child(1)")).to have_content "14:00 - Fri 18th Feb '22"
+      expect(page).not_to have_content "Peep 2"
+    end
   end
+
 end

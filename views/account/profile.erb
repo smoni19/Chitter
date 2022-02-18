@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chitter</title>
+    <% if !@profile %>
+      <title>Chitter</title>
+    <% else %>
+      <title><%= "Chitter - @#{@profile}" %></title>
+    <% end %>
     <link href="/style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,23 +14,16 @@
   <body>
 
     <div id="content">
-      <div id="navbar">
-        <div id="welcome">
-          <% if !@name %>
-            Welcome to Chitter!
-          <% else %>
-            <a href="<%= @username %>"><%= "#{@name} @#{@username}" %></a>
-          <% end %>
-        </div>
-        <div id="links">
-          <% if !@name %>
-            <a href="/signup">Sign up</a>
-            <a href="/login">Login</a>
-          <% else %>
-            <a href="/logout">Logout</a>
-          <% end %>
-        </div>
-      </div>
+      <ul id="navbar_links">
+        <li><a href="/">Home</a></li>
+        <% if !@name %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Sign up</a></li>
+        <% else %>
+          <li><a href="<%= @username %>" id="user_profile"><%= "#{@name} @#{@username}" %></a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% end %>
+      </ul>
 
       <div id="post_peep">
         <% if @name %>
@@ -45,16 +42,16 @@
                 <a href="<%= "#{peep.find_user_info.username}" %>">
                   <span id="poster_name"><%= "#{peep.find_user_info.name}" %></span>
                   <span id="poster_username"><%= "@#{peep.find_user_info.username}" %></span>
+                  <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
+                  <hr>
+                  <p id="peep_text"><%= peep.text %></p>
                 </a>
-                <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
-                <hr>
-                <p id="peep_text"><%= peep.text %></p>
               </li>
             <% end %>
           <% end %>
         </ul>
       </div>
-    </div>
+  </div>
 
   </body>
 </html>
