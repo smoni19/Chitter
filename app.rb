@@ -19,7 +19,6 @@ class Chitter < Sinatra::Base
   end
 
   post "/post_peep" do
-    #Peep.create(text: params[:text], post_time: Time.new.strftime("%R - %d/%m/%y").to_s, account_id: session[:id])
     Peep.create(text: params[:text], post_time: Time.new, account_id: session[:id])
     redirect "/"
   end

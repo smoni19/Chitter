@@ -30,4 +30,12 @@ describe Peep do
       expect(peeps[2].text).to eq "Ignorance, the root and stem of every evil. ― Plato"
     end
   end
+
+  describe "#convert_time" do
+    it "converts the post_time timestamp to a different format" do
+      user = create_user("John Smith", "js2000", "js2000@test.com", "1234")
+      peep = create_peep("Hobnobs are the best biscuit", user)
+      expect(peep.convert_time(peep.post_time)).to eq "15:00 - Fri 18th Feb '22"
+    end
+  end
 end
