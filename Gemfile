@@ -15,4 +15,5 @@ group :development, :test do
   gem 'capybara'
   gem 'webrick'
   gem 'pg'
+  gem 'timecop'
 end
