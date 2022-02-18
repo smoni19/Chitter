@@ -32,4 +32,23 @@ class Peep
   def find_user_info
     Account.find(id: account_id)
   end
+
+  def convert_time(post_time)
+    day = Time.parse(post_time).strftime("%d").to_i
+    Time.parse(post_time).strftime("%R - %a #{ordinalise(day)} %b '%y")
+  end
+
+  def ordinalise(day)
+    if (11..13).include?(day % 100)
+      "#{day}th"
+    else
+      case day % 10
+        when 1; day = "#{day}st"
+        when 2; day = "#{day}nd"
+        when 3; day = "#{day}rd"
+        else    day = "#{day}th"
+      end
+    end
+  end
+
 end

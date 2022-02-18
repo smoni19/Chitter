@@ -1,4 +1,4 @@
-require "signup"
+require "feature_tests/helper_signup"
 
 feature "user can sign up" do
   scenario "users fill out sign up form, click Sign Up! button and ther account is created" do

@@ -1,9 +1,10 @@
 require "account"
+require "unit_tests/helper_create_user"
 
 describe Account do
   describe "#create" do
     it "creates a new user" do
-      user = Account.create(name: "John Smith", username: "js2000", email: "js2000@test.com", password: "1234")
+      user = create_user("John Smith", "js2000", "js2000@test.com", "1234")
       expect(user).to be_a Account
       expect(user.name).to eq "John Smith"
       expect(user.username).to eq "js2000"
@@ -11,12 +12,12 @@ describe Account do
     end
   end
 
-  describe '#login' do
+  describe "#login" do
     it "logs in a user if they have signed up" do
-      Account.create(name: "John Smith", username: "js2000", email: "js2000@test.com", password: "1234")
-      Account.create(name: "Jane Smith", username: "janey12", email: "jane_smith@example.com", password: "1234")
-      user = Account.login(email: "js2000@test.com", password: "1234")
-      expect(user.name).to eq "John Smith"
+      user1 = create_user("John Smith", "js2000", "js2000@test.com", "1234")
+      user2 = create_user("Jane Smith", "janey12", "jane_smith@example.com", "1234")
+      user1 = Account.login(email: "js2000@test.com", password: "1234")
+      expect(user1.name).to eq "John Smith"
     end
   end
 
