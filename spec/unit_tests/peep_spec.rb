@@ -12,7 +12,7 @@ describe Peep do
       peep = create_peep("Hobnobs are the best biscuit", user)
       expect(peep).to be_a Peep
       expect(peep.text).to eq "Hobnobs are the best biscuit"
-      expect(peep.post_time).to eq "2022-02-18 15:00:00 +0100"
+      expect(peep.post_time).to eq "2022-02-18 14:00:00+00"
       expect(peep.account_id).to eq user.id
     end
   end
@@ -35,7 +35,7 @@ describe Peep do
     it "converts the post_time timestamp to a different format" do
       user = create_user("John Smith", "js2000", "js2000@test.com", "1234")
       peep = create_peep("Hobnobs are the best biscuit", user)
-      expect(peep.convert_time(peep.post_time)).to eq "15:00 - Fri 18th Feb '22"
+      expect(peep.convert_time(peep.post_time)).to eq "14:00 - Fri 18th Feb '22"
     end
   end
 end

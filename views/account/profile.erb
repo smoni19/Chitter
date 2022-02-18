@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chitter</title>
+    <% if !@profile %>
+      <title>Chitter</title>
+    <% else %>
+      <title><%= "Chitter - @#{@profile}" %></title>
+    <% end %>
     <link href="/style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,19 +37,21 @@
       <div id="peeps">
         <ul>
           <% @peeps.reverse_each do |peep| %>
-            <li class="peep" id="<%= peep.id %>">
-              <a href="<%= "#{peep.find_user_info.username}" %>">
-                <span id="poster_name"><%= "#{peep.find_user_info.name}" %></span>
-                <span id="poster_username"><%= "@#{peep.find_user_info.username}" %></span>
-                <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
-                <hr>
-                <p id="peep_text"><%= peep.text %></p>
-              </a>
-            </li>
+            <% if peep.find_user_info.username == @profile %>
+              <li class="peep" id="<%= peep.id %>">
+                <a href="<%= "#{peep.find_user_info.username}" %>">
+                  <span id="poster_name"><%= "#{peep.find_user_info.name}" %></span>
+                  <span id="poster_username"><%= "@#{peep.find_user_info.username}" %></span>
+                  <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
+                  <hr>
+                  <p id="peep_text"><%= peep.text %></p>
+                </a>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>
-    </div>
+  </div>
 
   </body>
 </html>

@@ -54,5 +54,13 @@ class Chitter < Sinatra::Base
     redirect "/"
   end
 
+  get "/:username" do
+    @peeps = Peep.all
+    @name = session[:name]
+    @username = session[:username]
+    @profile = params[:username]
+    erb :"account/profile"
+  end
+
   run! if app_file == $0
 end
