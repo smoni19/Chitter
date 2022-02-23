@@ -38,4 +38,13 @@ describe Peep do
       expect(peep.convert_time(peep.post_time)).to eq "14:00 - Fri 18th Feb '22"
     end
   end
+
+  describe "#check_hashtag" do
+    it "converts word to a link if it begins with a #" do
+      user = create_user("John Smith", "js2000", "js2000@test.com", "1234")
+      peep = create_peep("Hobnobs are the best #biscuit", user)
+      expect(peep.check_hashtag(peep.text, "index")).to eq "Hobnobs are the best <a href=\"hashtag/biscuit\" id=\"hashtag\">#biscuit</a>"
+    end
+  end
+
 end

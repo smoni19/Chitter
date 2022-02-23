@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% if !@profile %>
-      <title>Chitter</title>
-    <% else %>
-      <title><%= "@#{@profile} - Chitter" %></title>
-    <% end %>
+    <title><%= '#' + @hashtag %> - Chitter</title>
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,11 +17,11 @@
           <li><a href="/login">Login</a></li>
           <li><a href="/signup">Sign up</a></li>
         <% else %>
-          <li><a href="<%= @username %>" id="user_profile"><%= "#{@name} @#{@username}" %></a></li>
+          <li><a href="../users/<%= @username %>" id="user_profile"><%= "#{@name} @#{@username}" %></a></li>
           <li><a href="/logout">Logout</a></li>
         <% end %>
       </ul>
-
+    
       <div id="post_peep">
         <% if @name %>
           <form action="/post_peep" method="post">
@@ -39,21 +35,21 @@
       <div id="peeps">
         <ul>
           <% @peeps.reverse_each do |peep| %>
-            <% if peep.find_user_info.username == @profile %>
+            <% if peep.text.include?(@hashtag) %>
               <li class="peep" id="<%= peep.id %>">
-                <a href="<%= "#{peep.find_user_info.username}" %>">
+                <a href="../users/<%= "#{peep.find_user_info.username}" %>">
                   <span id="poster_name"><%= "#{peep.find_user_info.name}" %></span>
                   <span id="poster_username"><%= "@#{peep.find_user_info.username}" %></span>
                 </a>
-                  <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
-                  <hr>
-                <p id="peep_text"><%= peep.check_hashtag(peep.text, "profile") %></p>
+                <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
+                <hr>
+                <p id="peep_text"><%= peep.check_hashtag(peep.text, "hashtag") %></p>
               </li>
             <% end %>
           <% end %>
         </ul>
       </div>
-  </div>
+    </div>
 
   </body>
 </html>
