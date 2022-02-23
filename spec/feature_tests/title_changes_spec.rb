@@ -7,7 +7,7 @@ feature "page title changes" do
     click_link("Logout")
     signup("John Smith", "js2000", "js2000@test.com", "1234")
     post_peep("Peep 2")
-    expect(title).to eq "Chitter"
+    expect(title).to eq "Chitter - Home"
     click_link("Jane Smith @janey12")
     expect(title).to eq "Chitter - @janey12"
   end

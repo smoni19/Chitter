@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chitter</title>
+    <title>Chitter - Home</title>
     <link href="/style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <script type="text/javascript"  src="javascripts/character_count.js"></script>
   </head>
   <body>
 
@@ -20,12 +21,13 @@
           <li><a href="/logout">Logout</a></li>
         <% end %>
       </ul>
-
+    
       <div id="post_peep">
         <% if @name %>
           <form action="/post_peep" method="post">
-            <input type="text" name="text" placeholder="Message" id="text" required>
-            <input type="submit" value="Peep!"></button>
+            <textarea name="text" placeholder="Message" id="text" name="message" onInput="CountChars(this);" required></textarea>
+            <p id="character_count">Characters: 0/200</p>
+            <input type="submit" value="Peep!" id="peep_button"></button>
           </form>
         <% end %>
       </div>

@@ -56,7 +56,7 @@ body {
   width: 20%;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=submit] {
+textarea, input[type=password], input[type=email], input[type=submit] {
   background-color: #666;
   font-family: 'Rubik', sans-serif;
   border: none;
@@ -79,27 +79,30 @@ input[type=text], input[type=password], input[type=email], input[type=submit] {
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
 
-input[type=text], input[type=password], input[type=email] {
+textarea, input[type=password], input[type=email] {
   margin-bottom: 5px;
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
 
-#text {
+#text, #peep_button, #charNum {
   width: 80%;
   font-size: 12pt;
   padding: 8px 10px;
+  text-align: justify;
+  float: left;
+  display: flex;
 }
 
 ::placeholder {
   color: white;
 }
 
-input[type=text]:hover, input[type=password]:hover, input[type=email]:hover {
+textarea:hover, input[type=password]:hover, input[type=email]:hover {
   outline: none;
   border: 2px solid rgb(0, 252, 214);
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+textarea:focus, input[type=password]:focus, input[type=email]:focus {
   outline: none;
   border: 2px solid rgb(0, 252, 214);
 }
@@ -252,4 +255,9 @@ hr {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, #6660, #999F, #6660);
+}
+
+#charNum {
+  position: relative;
+  left: 15%;
 }
