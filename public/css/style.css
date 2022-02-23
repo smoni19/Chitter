@@ -44,7 +44,19 @@ body {
   border: 2px solid rgb(0, 252, 214);
 }
 
-#peeps li:hover #poster_name {
+#peeps li:hover{
+  color: rgb(0, 252, 214);
+}
+
+#poster_name, #hashtag {
+  font-weight: 500;
+}
+
+#poster_name:hover {
+  color: rgb(0, 252, 214);
+}
+
+#hashtag:hover {
   color: rgb(0, 252, 214);
 }
 
@@ -56,7 +68,7 @@ body {
   width: 20%;
 }
 
-textarea, input[type=password], input[type=email], input[type=submit] {
+input[type=text], textarea, input[type=password], input[type=email], input[type=submit] {
   background-color: #666;
   font-family: 'Rubik', sans-serif;
   border: none;
@@ -79,7 +91,7 @@ textarea, input[type=password], input[type=email], input[type=submit] {
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
 
-textarea, input[type=password], input[type=email] {
+input[type=text], textarea, input[type=password], input[type=email] {
   margin-bottom: 5px;
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
@@ -97,12 +109,12 @@ textarea, input[type=password], input[type=email] {
   color: white;
 }
 
-textarea:hover, input[type=password]:hover, input[type=email]:hover {
+input[type=text]:hover, textarea:hover, input[type=password]:hover, input[type=email]:hover {
   outline: none;
   border: 2px solid rgb(0, 252, 214);
 }
 
-textarea:focus, input[type=password]:focus, input[type=email]:focus {
+input[type=text]:focus, textarea:focus, input[type=password]:focus, input[type=email]:focus {
   outline: none;
   border: 2px solid rgb(0, 252, 214);
 }
@@ -220,7 +232,6 @@ ul li:nth-child(odd) a {
 
 #poster_name, #poster_username {
   text-align: left;
-  font-weight: 500;
 }
 
 #poster_username {
@@ -243,7 +254,7 @@ ul li:nth-child(odd) a {
   box-decoration-break: clone;
   text-align: left;
   margin: 0px;
-  padding: 10px 20px 10px;
+  padding: 5px 5px 5px;
   text-align: justify;
 }
 

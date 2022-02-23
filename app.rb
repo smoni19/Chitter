@@ -28,7 +28,10 @@ class Chitter < Sinatra::Base
   end
 
   post "/signup" do
-    @user = Account.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    @user = Account.create(name: params[:name],
+    username: params[:username],
+    email: params[:email],
+    password: params[:password])
     session[:name] = @user.name
     session[:username] = @user.username
     session[:email] = @user.email
@@ -54,12 +57,21 @@ class Chitter < Sinatra::Base
     redirect "/"
   end
 
-  get "/:username" do
+  get "/users/:username" do
     @peeps = Peep.all
     @name = session[:name]
     @username = session[:username]
     @profile = params[:username]
     erb :"account/profile"
+  end
+
+  get "/hashtag/:hashtag" do
+    @peeps = Peep.all
+    @name = session[:name]
+    @username = session[:username]
+    @profile = params[:username]
+    @hashtag = params[:hashtag]
+    erb :hashtag
   end
 
   run! if app_file == $0
