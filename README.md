@@ -41,6 +41,10 @@ As a User
 I want to be able to create hashtags
 So that I can chat about a topic with other users
 
+As a User
+I want to be able to delete my Peeps
+So that I can post a new Peep without typos
+
 ```
 
 Notes on functionality:

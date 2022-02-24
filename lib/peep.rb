@@ -11,6 +11,7 @@ class Peep
     VALUES($1, $2, $3)
     RETURNING id, text, post_time, account_id;"
   @get_peeps = "SELECT * FROM peeps;"
+  @delete_peep = "DELETE FROM peeps WHERE id = $1 RETURNING id, text, post_time, account_id;"
 
   def initialize(text:, post_time:, account_id:, id:)
     @text = text
@@ -39,6 +40,16 @@ class Peep
         account_id: peep["account_id"],
         id: peep["id"])
     end
+  end
+
+  def self.delete(id:)
+    ENV["ENVIRONMENT"] == "test" ? connection = @test_db : connection = @live_db
+    result = connection.exec_params(@delete_peep, [id])
+    Peep.new(
+      text: result[0]["text"],
+      post_time: result[0]["post_time"],
+      account_id: result[0]["account_id"],
+      id: result[0]["id"])
   end
 
   def find_user_info
