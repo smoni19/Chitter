@@ -52,8 +52,4 @@ class Account
       email: result[0]['email'])
   end
 
-  def return_account(result)
-    
-  end
-
 end
