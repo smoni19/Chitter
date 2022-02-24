@@ -21,7 +21,7 @@ body {
   width: 50%;
   border-radius: 5px;
   font-weight: 500;
-  font-size: 16pt;
+  font-size: 16px;
   padding: 5px;
   border: 2px solid rgb(255, 174, 90);
   box-shadow: inset 0px 0px 10px -5px #000000, 0px 0px 10px -5px #000000;
@@ -166,8 +166,8 @@ ul {
 li {
   background: #555;
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
-  margin-bottom: 10px;
-  padding: 5px 10px;
+  margin-bottom: 15px;
+  padding: 5px 10px 20px;
 }
 
 ul li:nth-child(even) {
@@ -271,4 +271,18 @@ hr {
 #charNum {
   position: relative;
   left: 15%;
+}
+
+#delete_peep {
+  all: unset;
+  position: absolute;
+  right: 10px;
+  margin-top: -5px;
+  color: #aaa;
+  font-weight: 500;
+  font-size: 14px;
+}
+#delete_peep:hover {
+  font-weight: 500;
+  color: rgb(255, 0, 100);
 }
