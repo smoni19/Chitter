@@ -1,5 +1,5 @@
 require "account"
-require "unit_tests/helper_create_user"
+require "unit_tests/helper_methods/create_user"
 
 describe Account do
   describe "#create" do

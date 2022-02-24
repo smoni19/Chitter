@@ -1,5 +1,5 @@
-require "feature_tests/helper_signup"
-require "feature_tests/helper_post_peep"
+require "feature_tests/helper_methods/signup"
+require "feature_tests/helper_methods/post_peep"
 require 'timecop'
 
 feature "user can see all Peeps" do

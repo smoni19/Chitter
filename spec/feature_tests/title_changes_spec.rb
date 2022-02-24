@@ -1,4 +1,4 @@
-require "feature_tests/helper_signup"
+require "feature_tests/helper_methods/signup"
 
 feature "page title changes" do
   scenario "page title changes when user logs in and navigates to a users page" do

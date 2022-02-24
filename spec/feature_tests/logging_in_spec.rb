@@ -1,4 +1,4 @@
-require "feature_tests/helper_login"
+require "feature_tests/helper_methods/login"
 
 feature "user can log in" do
   scenario "users fill out log in form, click Login! button and they are logged in" do

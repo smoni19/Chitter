@@ -1,5 +1,5 @@
-require "unit_tests/helper_create_peep"
-require "unit_tests/helper_create_user"
+require "unit_tests/helper_methods/create_peep"
+require "unit_tests/helper_methods/create_user"
 require 'timecop'
 
 describe Peep do
