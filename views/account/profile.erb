@@ -48,7 +48,7 @@
                 </a>
                 <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
                 <hr>
-                <p id="peep_text"><%= peep.check_hashtag(peep.text, "profile") %></p>
+                <p id="peep_text"><%= peep.check_interacton(peep.text, "profile") %></p>
                 <% if session[:id] == peep.find_user_info.id %>
                   <hr>
                   <form action="/delete/<%= peep.id %>" method="post">

@@ -77,20 +77,23 @@ class Peep
     end
   end
 
-  def check_hashtag(peep, page)
+  def check_interacton(peep, page)
     peep_with_link = []
     peep = peep.split()
     peep.each do |word|
-      peep_with_link << convert_to_link(word, page)
+      word[0] == "#" ? link_type = "hashtag" : link_type = "mention"
+      peep_with_link << create_link(word, page, link_type)
     end
-    return peep_with_link.join(' ')
+    peep_with_link.join(' ')
   end
 
-  def convert_to_link(word, page)
+  def create_link(word, page, link_type)
+    parameters = { "symbol" => "", "route" => "" }
+    link_type == "hashtag" ? (parameters["symbol"] = "#"; parameters["route"] = "hashtag") : (parameters["symbol"] = "@"; parameters["route"] = "users")
     if page == "index"
-      word = "<a href=\"hashtag/#{word[1..]}\" id=\"hashtag\">#{word}</a>" if word[0] == "#"
+      word = "<a href=\"#{parameters["route"]}/#{word[1..]}\" id=\"interaction\">#{word}</a>" if word[0] == parameters["symbol"]
     elsif page == "profile" || page == "hashtag"
-      word = "<a href=\"../hashtag/#{word[1..]}\" id=\"hashtag\">#{word}</a>" if word[0] == "#"
+      word = "<a href=\"../#{parameters["route"]}/#{word[1..]}\" id=\"interaction\">#{word}</a>" if word[0] == parameters["symbol"]
     end
     return word
   end
