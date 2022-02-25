@@ -50,11 +50,6 @@ body {
 #peeps li:hover {
   background: #666;
   cursor: pointer;
-  border: 2px solid var(--green);
-}
-
-#peeps li:hover{
-  color: var(--green);
 }
 
 #poster_name, #hashtag {
@@ -299,5 +294,8 @@ hr {
 
 .peep_delete {
   border: 2px solid var(--red) !important;
+}
+
+.peep_delete > *, .peep_delete #poster_username, .peep_delete #hashtag {
   color: var(--red) !important;
 }

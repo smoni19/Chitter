@@ -37,7 +37,7 @@
         <ul>
           <% @peeps.reverse_each do |peep| %>
             <% if peep.text.include?(@hashtag) %>
-              <li class="peep" id="<%= peep.id %>">
+              <li id="<%= peep.id %>">
                 <a href="../users/<%= "#{peep.find_user_info.username}" %>">
                   <span id="poster_name"><%= "#{peep.find_user_info.name}" %></span>
                   <span id="poster_username"><%= "@#{peep.find_user_info.username}" %></span>
