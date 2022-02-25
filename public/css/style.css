@@ -52,7 +52,7 @@ body {
   cursor: pointer;
 }
 
-#poster_name, #hashtag {
+#poster_name, #interaction {
   font-weight: 500;
 }
 
@@ -60,7 +60,7 @@ body {
   color: var(--green);
 }
 
-#hashtag:hover {
+#interaction:hover {
   color: var(--green);
 }
 
@@ -301,7 +301,7 @@ hr {
   box-shadow: none;
 }
 
-.peep_delete > *, .peep_delete #poster_username, .peep_delete #hashtag {
+.peep_delete > *, .peep_delete #poster_username, .peep_delete #interaction {
   color: var(--red) !important;
 }
 

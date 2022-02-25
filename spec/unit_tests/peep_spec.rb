@@ -49,11 +49,18 @@ describe Peep do
     end
   end
 
-  describe "#check_hashtag" do
-    it "converts word to a link if it begins with a #" do
+  describe "#check_interacton" do
+    it "creates a hashtag by converting a word to a link if it begins with a #" do
       user = create_user("John Smith", "js2000", "js2000@test.com", "1234")
       peep = create_peep("Hobnobs are the best #biscuit", user)
-      expect(peep.check_hashtag(peep.text, "index")).to eq "Hobnobs are the best <a href=\"hashtag/biscuit\" id=\"hashtag\">#biscuit</a>"
+      expect(peep.check_interacton(peep.text, "index")).to eq "Hobnobs are the best <a href=\"hashtag/biscuit\" id=\"interaction\">#biscuit</a>"
+    end
+
+    it "creates a mention by converting a word to a link if it begins with an @" do
+      user1 = create_user("John Smith", "js2000", "js2000@test.com", "1234")
+      user2 = create_user("Jane Smith", "janey12", "jane_smith@example.com", "1234")
+      peep = create_peep("Hi @janey12 do you like Hobnobs?", user1)
+      expect(peep.check_interacton(peep.text, "index")).to eq "Hi <a href=\"users/janey12\" id=\"interaction\">@janey12</a> do you like Hobnobs?"
     end
   end
 
