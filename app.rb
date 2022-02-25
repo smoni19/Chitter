@@ -76,7 +76,7 @@ class Chitter < Sinatra::Base
 
   delete "/delete/:id" do
     Peep.delete(id: params[:id])
-    redirect "/"
+    redirect back
   end
 
   run! if app_file == $0

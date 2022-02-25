@@ -81,6 +81,7 @@ input[type=text], textarea, input[type=password], input[type=email], input[type=
   padding: 5px 10px;
   text-decoration: none;
   border: 2px solid var(--orange);
+  caret-color: var(--green);
 }
 
 #login, #signup {
@@ -116,11 +117,13 @@ input[type=text], textarea, input[type=password], input[type=email] {
 input[type=text]:hover, textarea:hover, input[type=password]:hover, input[type=email]:hover {
   outline: none;
   border: 2px solid var(--green);
+  color: var(--green);
 }
 
 input[type=text]:focus, textarea:focus, input[type=password]:focus, input[type=email]:focus {
   outline: none;
   border: 2px solid var(--green);
+  color: var(--green);
 }
 
 input[type=submit]:focus, input[type=submit]:hover {

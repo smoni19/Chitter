@@ -11,7 +11,10 @@ class Peep
     VALUES($1, $2, $3)
     RETURNING id, text, post_time, account_id;"
   @get_peeps = "SELECT * FROM peeps;"
-  @delete_peep = "DELETE FROM peeps WHERE id = $1 RETURNING id, text, post_time, account_id;"
+  @delete_peep = "
+    DELETE FROM peeps
+    WHERE id = $1
+    RETURNING id, text, post_time, account_id;"
 
   def initialize(text:, post_time:, account_id:, id:)
     @text = text
