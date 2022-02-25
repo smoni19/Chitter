@@ -293,9 +293,16 @@ hr {
 }
 
 .peep_delete {
+  background: #444 !important;
   border: 2px solid var(--red) !important;
+  box-shadow: none;
 }
 
 .peep_delete > *, .peep_delete #poster_username, .peep_delete #hashtag {
   color: var(--red) !important;
+}
+
+.peep_delete hr {
+
+  background-image: linear-gradient(to right, #6660, #666F, #6660);
 }
