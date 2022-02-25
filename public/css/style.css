@@ -1,3 +1,12 @@
+:root {
+  --blue: rgb(77, 195, 255);
+  --green: rgb(0, 252, 214);
+  --orange: rgb(255, 174, 90);
+  --pink: rgb(255, 106, 183);
+  --purple: rgb(178, 125, 232);
+  --red: rgb(255, 0, 100);
+}
+
 body {
   background: #444;
   font-family: 'Rubik', sans-serif;
@@ -23,7 +32,7 @@ body {
   font-weight: 500;
   font-size: 16px;
   padding: 5px;
-  border: 2px solid rgb(255, 174, 90);
+  border: 2px solid var(--orange);
   box-shadow: inset 0px 0px 10px -5px #000000, 0px 0px 10px -5px #000000;
 }
 
@@ -41,11 +50,11 @@ body {
 #peeps li:hover {
   background: #666;
   cursor: pointer;
-  border: 2px solid rgb(0, 252, 214);
+  border: 2px solid var(--green);
 }
 
 #peeps li:hover{
-  color: rgb(0, 252, 214);
+  color: var(--green);
 }
 
 #poster_name, #hashtag {
@@ -53,11 +62,11 @@ body {
 }
 
 #poster_name:hover {
-  color: rgb(0, 252, 214);
+  color: var(--green);
 }
 
 #hashtag:hover {
-  color: rgb(0, 252, 214);
+  color: var(--green);
 }
 
 #post_peep {
@@ -76,11 +85,11 @@ input[type=text], textarea, input[type=password], input[type=email], input[type=
   font-size: 14pt;
   padding: 5px 10px;
   text-decoration: none;
-  border: 2px solid rgb(255, 174, 90);
+  border: 2px solid var(--orange);
 }
 
 #login, #signup {
-  border: 1px solid rgb(255, 174, 90);
+  border: 1px solid var(--orange);
   padding: 10px;
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
@@ -111,19 +120,19 @@ input[type=text], textarea, input[type=password], input[type=email] {
 
 input[type=text]:hover, textarea:hover, input[type=password]:hover, input[type=email]:hover {
   outline: none;
-  border: 2px solid rgb(0, 252, 214);
+  border: 2px solid var(--green);
 }
 
 input[type=text]:focus, textarea:focus, input[type=password]:focus, input[type=email]:focus {
   outline: none;
-  border: 2px solid rgb(0, 252, 214);
+  border: 2px solid var(--green);
 }
 
 input[type=submit]:focus, input[type=submit]:hover {
-  border: 2px solid rgb(0, 252, 214);
+  border: 2px solid var(--green);
   outline: none;
   cursor: pointer;
-  color: rgb(0, 252, 214);
+  color: var(--green);
 }
 
 input[type=submit] {
@@ -147,13 +156,13 @@ a:visited {
 a:hover {
   text-decoration: none;
   margin-left: 10px;
-  color: rgb(255, 174, 90);
+  color: var(--orange);
 }
 
 a:active {
   text-decoration: none;
   margin-left: 10px;
-  color: rgb(255, 174, 90);
+  color: var(--orange);
 }
 
 ul {
@@ -171,22 +180,22 @@ li {
 }
 
 ul li:nth-child(even) {
-  color: rgb(255, 106, 183);
-  border: 2px solid rgb(255, 106, 183);
+  color: var(--pink);
+  border: 2px solid var(--pink);
 }
 
 ul li:nth-child(even) a {
-  color: rgb(255, 106, 183);
+  color: var(--pink);
   margin-left: 0;
 }
 
 ul li:nth-child(odd) {
-  color: rgb(77, 195, 255);
-  border: 2px solid rgb(77, 195, 255);
+  color: var(--blue);
+  border: 2px solid var(--blue);
 }
 
 ul li:nth-child(odd) a {
-  color: rgb(77, 195, 255);
+  color: var(--blue);
   margin-left: 0;
 }
 
@@ -196,13 +205,13 @@ ul li:nth-child(odd) a {
   margin: 10px;
   padding: 5px;
   overflow: hidden;
-  border: 2px solid rgb(255, 174, 90);
+  border: 2px solid var(--orange);
   box-shadow: inset 0px 0px 10px -3px #000000, 0px 0px 10px -3px #000000;
 }
 
 #navbar_links li {
   float: left;
-  border: 2px solid rgb(255, 174, 90);
+  border: 2px solid var(--orange);
   margin: 5px;
   padding: 0;
   width: 70%;
@@ -223,11 +232,11 @@ ul li:nth-child(odd) a {
 }
 
 #navbar_links li:hover {
-  border: 2px solid rgb(0, 252, 214);
+  border: 2px solid var(--green);
 }
 
 #navbar_links li a:hover {
-  color: rgb(0, 252, 214);
+  color: var(--green);
 }
 
 #poster_name, #poster_username {
@@ -277,12 +286,18 @@ hr {
   all: unset;
   position: absolute;
   right: 10px;
-  margin-top: -5px;
+  margin-top: -4px;
   color: #aaa;
   font-weight: 500;
   font-size: 14px;
 }
+
 #delete_peep:hover {
   font-weight: 500;
-  color: rgb(255, 0, 100);
+  color: var(--red);
+}
+
+.peep_delete {
+  border: 2px solid var(--red) !important;
+  color: var(--red) !important;
 }

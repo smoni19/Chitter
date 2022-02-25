@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
     <script type="text/javascript"  src="../javascripts/character_count.js"></script>
+    <script type="text/javascript" src="../javascripts/change_border.js"></script>
   </head>
   <body>
 
@@ -45,9 +46,16 @@
                   <span id="poster_name"><%= "#{peep.find_user_info.name}" %></span>
                   <span id="poster_username"><%= "@#{peep.find_user_info.username}" %></span>
                 </a>
-                  <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
-                  <hr>
+                <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
+                <hr>
                 <p id="peep_text"><%= peep.check_hashtag(peep.text, "profile") %></p>
+                <% if session[:id] == peep.find_user_info.id %>
+                  <hr>
+                  <form action="/delete/<%= peep.id %>" method="post">
+                    <input id="hidden" type="hidden" name="_method" value="delete">
+                    <input type="submit" value="Delete" id="delete_peep" onmouseover="RedBorder(this)" onmouseout="NormalBorder(this);">
+                  </form>
+                <% end %>
               </li>
             <% end %>
           <% end %>
