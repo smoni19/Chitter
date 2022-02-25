@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
 
   post "/post_peep" do
     Peep.create(text: params[:text], post_time: Time.new, account_id: session[:id])
-    redirect "/"
+    redirect back
   end
 
   get "/signup" do

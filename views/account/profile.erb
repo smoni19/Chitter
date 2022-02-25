@@ -27,15 +27,15 @@
         <% end %>
       </ul>
 
-      <div id="post_peep">
-        <% if @name %>
+      <% if @username == @profile %>
+        <div id="post_peep">
           <form action="/post_peep" method="post">
             <textarea name="text" placeholder="Message" id="text" name="message" onInput="CountChars(this);" required></textarea>
             <p id="character_count">Characters: 0/200</p>
             <input type="submit" value="Peep!" id="peep_button"></button>
           </form>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
 
       <div id="peeps">
         <ul>
