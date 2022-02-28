@@ -38,7 +38,7 @@
       <% end %>
 
       <div id="peeps">
-        <ul>
+        <ul id="peep_list">
           <% @peeps.reverse_each do |peep| %>
             <% if peep.find_user_info.username == @profile %>
               <li id="<%= peep.id %>">
@@ -46,22 +46,28 @@
                   <span id="poster_name"><%= "#{peep.find_user_info.name}" %></span>
                   <span id="poster_username"><%= "@#{peep.find_user_info.username}" %></span>
                 </a>
-                <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span><br/>
+                <span id="peep_time"><%= peep.convert_time(peep.post_time) %></span>
+                <span id="edited"><%= peep.edited == 't' ? 'Edited' : '' %></span><br/>
                 <hr>
                 <p id="peep_text"><%= peep.check_interacton(peep.text, "profile") %></p>
                 <% if session[:id] == peep.find_user_info.id %>
                   <hr>
-                  <form action="/delete/<%= peep.id %>" method="post">
-                    <input id="hidden" type="hidden" name="_method" value="delete">
-                    <input type="submit" value="Delete" id="delete_peep" onmouseover="RedBorder(this)" onmouseout="NormalBorder(this);">
-                  </form>
+                  <span id="peep_options">
+                    <form action="/edit/<%= peep.id %>" method="get">
+                      <input type="submit" value="Edit Peep" id="edit_peep" onmouseover="OrangeBorder(this)" onmouseout="NormalBorder(this);">
+                    </form>
+                    <form action="/delete/<%= peep.id %>" method="post">
+                      <input id="hidden" type="hidden" name="_method" value="delete">
+                      <input type="submit" value="Delete" id="delete_peep" onmouseover="RedBorder(this)" onmouseout="NormalBorder(this);">
+                    </form>
+                  </span>
                 <% end %>
               </li>
             <% end %>
           <% end %>
         </ul>
       </div>
-  </div>
+    </div>
 
   </body>
 </html>

@@ -4,6 +4,7 @@ feature "user can create a hashtag" do
     post_peep("This is a test #peep")
     click_link("peep")
     expect(page.status_code).to eq 200
+    expect(page).to have_current_path("/hashtag/peep")
     expect(page).to have_content("This is a test #peep")
   end
 end

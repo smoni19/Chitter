@@ -17,6 +17,17 @@ describe Peep do
     end
   end
 
+  describe "#edit" do
+    it "edits the text of a peep and sets edited to True" do
+      user = create_user("John Smith", "js2000", "js2000@test.com", "1234")
+      peep = create_peep("Hobnobs are the best biscuit", user)
+      expect(peep.edited).to eq "f"
+      edited_peep = Peep.edit(id: peep.id, text: "Hobnobs are the best biscuit, second to Oreos")
+      expect(edited_peep.edited).to eq "t"
+      expect(edited_peep.text).to eq "Hobnobs are the best biscuit, second to Oreos"
+    end
+  end
+
   describe "#delete" do
     it "deletes a peep and removes it from peeps array" do
       user = create_user("John Smith", "js2000", "js2000@test.com", "1234")

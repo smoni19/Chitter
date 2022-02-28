@@ -34,7 +34,7 @@
       </div>
 
       <div id="peeps">
-        <ul>
+        <ul id="peep_list">
           <% @peeps.reverse_each do |peep| %>
             <% if peep.text.include?(@hashtag) %>
               <li id="<%= peep.id %>">
@@ -47,10 +47,15 @@
                 <p id="peep_text"><%= peep.check_interacton(peep.text, "hashtag") %></p>
                 <% if session[:id] == peep.find_user_info.id %>
                   <hr>
-                  <form action="/delete/<%= peep.id %>" method="post">
-                    <input id="hidden" type="hidden" name="_method" value="delete">
-                    <input type="submit" value="Delete" id="delete_peep" onmouseover="RedBorder(this)" onmouseout="NormalBorder(this);">
-                  </form>
+                  <span id="peep_options">
+                    <form action="/edit/<%= peep.id %>" method="get">
+                      <input type="submit" value="Edit Peep" id="edit_peep" onmouseover="OrangeBorder(this)" onmouseout="NormalBorder(this);">
+                    </form>
+                    <form action="/delete/<%= peep.id %>" method="post">
+                      <input id="hidden" type="hidden" name="_method" value="delete">
+                      <input type="submit" value="Delete" id="delete_peep" onmouseover="RedBorder(this)" onmouseout="NormalBorder(this);">
+                    </form>
+                  </span>
                 <% end %>
               </li>
             <% end %>

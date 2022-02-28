@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  enable :sessions
+  enable :sessions, :method_override
 
   get "/" do
     @peeps = Peep.all
@@ -71,12 +71,24 @@ class Chitter < Sinatra::Base
     @username = session[:username]
     @profile = params[:username]
     @hashtag = params[:hashtag]
-    erb :hashtag
+    erb :"peeps/hashtag"
+  end
+
+  get "/edit/:id" do
+    @name = session[:name]
+    @username = session[:username]
+    @peep = Peep.find(id: params[:id])
+    erb :"peeps/edit"
+  end
+
+  patch "/update/:id" do
+    Peep.edit(id: params[:id], text: params[:edited_text])
+    redirect "/"
   end
 
   delete "/delete/:id" do
     Peep.delete(id: params[:id])
-    redirect back
+    redirect "/"
   end
 
   run! if app_file == $0

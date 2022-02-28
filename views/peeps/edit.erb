@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Peep - Chitter</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="javascripts/character_count.js"></script>
+    <script type="text/javascript" src="javascripts/change_border.js"></script>
+  </head>
+  <body>
+<script>
+
+</script>
+    <div id="content">
+      <ul id="navbar_links">
+        <li><a href="/">Home</a></li>
+        <% if !@name %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Sign up</a></li>
+        <% else %>
+          <li><a href="../users/<%= @username %>" id="user_profile"><%= "#{@name} @#{@username}" %></a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% end %>
+      </ul>
+
+      <div id="peeps">
+        <form action="/update/<%= @peep.id %>" method="post">
+          <input id="hidden" type="hidden" name="_method" value="patch">
+          <textarea name="edited_text" id="edited_text" rows="4" cols="65" required><%= @peep.text %></textarea>
+          <input type="submit" value="Save Peep" id="edit_peep">
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
