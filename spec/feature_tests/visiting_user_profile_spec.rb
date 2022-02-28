@@ -11,7 +11,7 @@ feature "user can view other user's page" do
     post_peep("Peep 1")
     click_link("js2000", :match => :first)
     expect(page.status_code).to eq 200
-    within "//div[@id='peeps']" do
+    within "ul#peep_list" do
       expect(page.find("li:nth-child(1)")).to have_content "Peep 1"
       expect(page.find("li:nth-child(1)")).to have_content "14:00 - Fri 18th Feb '22"
     end
@@ -25,7 +25,7 @@ feature "user can view other user's page" do
     post_peep("Peep 2")
     click_link("js2000")
     expect(page.status_code).to eq 200
-    within "//div[@id='peeps']" do
+    within "ul#peep_list" do
       expect(page.find("li:nth-child(1)")).to have_content "Peep 1"
       expect(page.find("li:nth-child(1)")).to have_content "14:00 - Fri 18th Feb '22"
       expect(page).not_to have_content "Peep 2"

@@ -246,13 +246,20 @@ ul li:nth-child(odd) a {
   font-weight: 300;
   color: #ccc;
 }
-
 #peep_time {
   text-align: right;
   font-weight: 300;
   float: right;
   color: #aaa;
 }
+
+#edited {
+  font-weight: 300;
+  float: right;
+  padding-right: 20px;
+  color: #aaa;
+}
+
 
 #peep_text {
   color: white;
@@ -280,11 +287,22 @@ hr {
   left: 15%;
 }
 
-#delete_peep {
+#peep_options {
+  display: flex;
+  align-items: right;
+  margin-bottom: -10px;
+  box-shadow: none;
+  background: none;
+}
+
+#peep_options form {
+  float: right;
+  margin-right: 10px;
+}
+
+#delete_peep, #edit_peep {
   all: unset;
-  position: absolute;
   right: 10px;
-  margin-top: -4px;
   color: #aaa;
   font-weight: 500;
   font-size: 14px;
@@ -296,16 +314,22 @@ hr {
 }
 
 .peep_delete {
-  background: #444 !important;
   border: 2px solid var(--red) !important;
-  box-shadow: none;
 }
 
 .peep_delete > *, .peep_delete #poster_username, .peep_delete #interaction {
   color: var(--red) !important;
 }
 
-.peep_delete hr {
+#edit_peep:hover {
+  font-weight: 500;
+  color: var(--orange);
+}
 
-  background-image: linear-gradient(to right, #6660, #666F, #6660);
+.peep_edit {
+  border: 2px solid var(--orange) !important;
+}
+
+.peep_edit > *, .peep_edit #poster_username, .peep_edit #interaction {
+  color: var(--orange) !important;
 }
