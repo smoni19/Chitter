@@ -4,8 +4,10 @@ require "./lib/peep"
 require "./lib/account"
 
 class Chitter < Sinatra::Base
+  set :raise_errors, false
+  set :show_exceptions, true if development?
   configure :development do
-    register Sinatra::Reloader
+    disable :show_exceptions
   end
 
   enable :sessions, :method_override
@@ -89,6 +91,10 @@ class Chitter < Sinatra::Base
   delete "/delete/:id" do
     Peep.delete(id: params[:id])
     redirect "/"
+  end
+
+  error 400..510 do
+    'Boom'
   end
 
   run! if app_file == $0
