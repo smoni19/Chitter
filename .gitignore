@@ -1,5 +1,6 @@
 /**/.DS_Store
 /coverage
+/simons-chitter
 
 # Local cache of Rubocop remote config
 .rubocop-*

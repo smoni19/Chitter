@@ -3,6 +3,8 @@ Chitter Challenge
 
 A Twitter clone that that allows the users to post messages to a public stream.
 
+[Available on Heroku](https://simons-chitter.herokuapp.com/)
+
 
 Features:
 -------
