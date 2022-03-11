@@ -65,6 +65,7 @@ Technologies used:
 
 * Ruby
 * Sinatra
+* Heroku
 * Rspec
 * Capybara
 * JavaScript
